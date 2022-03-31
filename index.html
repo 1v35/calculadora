@@ -1,0 +1,118 @@
+<html>
+	<head>
+		<title>Calculadora NP1 - Ivaldo</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <style>
+      .Calculadora {
+        margin-top: 40px;
+        border: solid 1px #000;
+        padding: 20px;
+        background-color: #2E2E2E;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px #000;
+      }
+
+      .btn {
+        width: 60px;
+        height: 50px;
+        margin: 5px;
+        box-shadow: 1px 1px 1px #000;
+      }
+
+      .clear {
+        width: 130px;
+      }
+
+      .enter {
+        height: 110px;
+      }
+
+      .zero {
+        width: 130px;
+      }
+
+      .resultado {
+        text-align: right;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border: solid 1px #000;
+        box-shadow: 1px 1px 1px #000;
+      }
+
+    </style>
+	</head>
+
+  <body style="background: #696969">
+
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <br />
+
+          <div class="Calculadora">
+            <input type="text" id="visor" class="form-control resultado" placeholder="0" disabled="disabled" />
+            
+            <div class="row">
+              <button onclick="LimparTela()" type="button" class="btn btn-dark btn-lg clear font-weight-light">C</button>
+              <button onclick="RecuperarNoDisplay('/')"type="button" class="btn btn-dark btn-lg font-weight-light">/</button>
+              <button onclick="RecuperarNoDisplay('*')"type="button" class="btn btn-dark btn-lg font-weight-light">x</button>
+            </div>
+
+            <div class="row">
+              <button onclick="RecuperarNoDisplay(7)" type="button" class="btn btn-dark btn-lg font-weight-light">7</button>
+              <button onclick="RecuperarNoDisplay(8)"type="button" class="btn btn-dark btn-lg font-weight-light">8</button>
+              <button onclick="RecuperarNoDisplay(9)" type="button" class="btn btn-dark btn-lg font-weight-light">9</button>
+              <button onclick="RecuperarNoDisplay('-')" type="button" class="btn btn-dark btn-lg font-weight-light">-</button>
+            </div>
+            
+            <div class="row">
+              <button onclick="RecuperarNoDisplay(4)"type="button" class="btn btn-dark btn-lg font-weight-light">4</button>
+              <button onclick="RecuperarNoDisplay(5)"type="button" class="btn btn-dark btn-lg font-weight-light">5</button>
+              <button onclick="RecuperarNoDisplay(6)"type="button" class="btn btn-dark btn-lg font-weight-light">6</button>
+              <button onclick="RecuperarNoDisplay('+')" type="button" class="btn btn-dark btn-lg font-weight-light">+</button>
+            </div>
+
+            <div class="row">
+              <button onclick="RecuperarNoDisplay(1)"type="button" class="btn btn-dark btn-lg font-weight-light">1</button>
+              <button onclick="RecuperarNoDisplay(2)"type="button" class="btn btn-dark btn-lg font-weight-light">2</button>
+              <button onclick="RecuperarNoDisplay(3)"type="button" class="btn btn-dark btn-lg font-weight-light">3</button>
+              <button onclick="Calcular()" type="button" class="btn btn-dark btn-lg enter">=</button>
+            </div>
+
+            <div class="row" style="margin-top: -60px">
+              <button onclick="RecuperarNoDisplay(0)"type="button" class="btn btn-dark zero btn-lg font-weight-light">0</button>
+              <button onclick="RecuperarNoDisplay('.')"type="button" class="btn btn-dark btn-lg font-weight-light">.</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div> 
+
+<script>
+   const visor = document.getElementById("visor");
+   console.log(visor);
+function RecuperarNoDisplay(valor){
+
+  if(visor.value==0){ 
+    visor.value = valor;
+  }
+  else{ 
+     visor.value += valor;
+}
+}
+function LimparTela(){
+  visor.value = 0;
+}
+function Calcular(){
+  visor.value = eval(visor.value)
+
+}
+</script>
+
+  </body>	
+
+</html>
